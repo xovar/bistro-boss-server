@@ -1,6 +1,7 @@
 require('dotenv').config(); // Load environment variables
 
 const express = require('express');
+const cors = require('cors');
 const { MongoClient, ServerApiVersion } = require('mongodb');
 
 const app = express();
@@ -8,6 +9,8 @@ const port = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.json());
+
+app.use(cors());
 
 // MongoDB Connection
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.jofxz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
